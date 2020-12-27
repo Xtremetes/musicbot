@@ -6,13 +6,11 @@ const ytdl = require("ytdl-core");
 const { YTSearcher } = require('ytsearcher');
 
 const searcher = new YTSearcher({
-    key: "AIzaSyBhPM-P8ahhGOanaXZIsdGv3XLrvIb310w",
+    key: process.env.youtube_api,
     revealed: true
 })
 
 const client = new Discord.Client();
-
-const token = "NzkwMDMyMDU5MTE1NjM0Njk5.X96ssA.SS8BO0G6GWlXBMenuZjOcyBmENM";
 
 const queue = new Map();
 
@@ -216,4 +214,4 @@ client.on("message", async(message) => {
     }
 })
 
-client.login(token);
+client.login(process.env.token);
