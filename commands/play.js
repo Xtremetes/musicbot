@@ -64,7 +64,7 @@ module.exports.run = async(client, message, args, queue, searcher) => {
             serverQueue.songs.push(song);
             if(playlist) return undefined;
 
-            let dur = `${("00" + parseInt(song.vLength / 60)).slice(-2)}:${("00" + song.vLength - 60 * parseInt(song.vLength / 60)).slice(-2)}`
+            let dur = `${parseInt(song.vLength / 60)}:${("00" + (song.vLength - 60 * parseInt(song.vLength / 60))).slice(-2)}`
             let msg = new Discord.MessageEmbed()
                 .setTitle("Song Added")
                 .addField(song.title, "_____")
@@ -96,7 +96,7 @@ module.exports.run = async(client, message, args, queue, searcher) => {
                 }
                 play(guild, serverQueue.songs[0]);
             })
-            let dur = `${("00" + parseInt(serverQueue.songs[0].vLength / 60)).slice(-2)}:${("00" + (serverQueue.songs[0].vLength - 60) * parseInt(serverQueue.songs[0].vLength / 60)).slice(-2)}`
+            let dur = `${parseInt(serverQueue.songs[0].vLength / 60)}:${("00" + (serverQueue.songs[0].vLength - 60 * parseInt(serverQueue.songs[0].vLength / 60))).slice(-2)}`
             let msg = new Discord.MessageEmbed()
                 .setTitle("Now Playing:")
                 .addField(serverQueue.songs[0].title, "_____")
