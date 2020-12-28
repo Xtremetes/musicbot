@@ -67,7 +67,7 @@ module.exports.run = async(client, message, args, queue, searcher) => {
             let dur = `${("00" + parseInt(song.vLength / 60)).slice(-2)}:${("00" + song.vLength - 60 * parseInt(song.vLength / 60))}`
             let msg = new Discord.MessageEmbed()
                 .setTitle("Song Added")
-                .addField(song.title)
+                .addField(song.title, "_____")
                 .addField("Song Duration", dur)
                 .setThumbnail(song.thumbnail)
                 .setColor("PURPLE")
@@ -99,13 +99,11 @@ module.exports.run = async(client, message, args, queue, searcher) => {
             let dur = `${("00" + parseInt(serverQueue.songs[0].vLength / 60)).slice(-2)}:${("00" + (serverQueue.songs[0].vLength - 60) * parseInt(serverQueue.songs[0].vLength / 60)).slice(-2)}`
             let msg = new Discord.MessageEmbed()
                 .setTitle("Now Playing:")
-                .addField(serverQueue.songs[0].title)
+                .addField(serverQueue.songs[0].title, "_____")
                 .addField("Song Duration", dur)
                 .setThumbnail(serverQueue.songs[0].thumbnail)
                 .setColor("PURPLE")
             return message.channel.send(msg);
-
-            serverQueue.txtChannel.send()
     }
 }
 
