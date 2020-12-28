@@ -6,10 +6,10 @@ module.exports.run = (client, message, args, queue, searcher) => {
         return message.channel.send("You are not in the voice channel");
 
     let nowPlaying = serverQueue.songs[0];
-    let qMsg = `Now playing: ${nowPlaying.title} (${("00" + Math.floor(serverQueue.songs[0].duration / 60)).slice(-2)}:${("00" + Math.floor(serverQueue.songs[0].duration % 60)).slice(-2)})\n \n`;
+    let qMsg = `Now playing: ${nowPlaying.title}\n \n`;
 
     for(var i = 1; i < serverQueue.songs.length; i++){
-        qMsg += `${i}. ${serverQueue.songs[i].title} (${("00" + Math.floor(serverQueue.songs[i].duration / 60)).slice(-2)}:${("00" + Math.floor(serverQueue.songs[i].duration % 60)).slice(-2)})\n`
+        qMsg += `${i}. ${serverQueue.songs[i].title}\n`
     }
 
     message.channel.send('```' + qMsg + '```');
