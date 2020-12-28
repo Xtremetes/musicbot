@@ -10,8 +10,8 @@ module.exports.run = async(client, message, args, queue, searcher) => {
     let url = args.join("");
     if(url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)){
         await ytpl(url).then(async playlist => {
-            message.channel.send(`The playlist: "${playlist.title}" has been added`)
-            playlist.forEach(async item => {
+            message.channel.send(`The playlist **"${playlist.title}"** has been added`)
+            playlist.items.forEach(async item => {
                 await videoHandler(await ytdl.getInfo(item.shortUrl), message, vc, true)
             })
         })
@@ -62,7 +62,7 @@ module.exports.run = async(client, message, args, queue, searcher) => {
         }
         else{
             serverQueue.songs.push(song);
-            if(playlist) return undefined;
+            if(playlist) return undefined
 
             let dur = `${parseInt(song.vLength / 60)}:${("00" + (song.vLength - 60 * parseInt(song.vLength / 60))).slice(-2)}`
             let msg = new Discord.MessageEmbed()
