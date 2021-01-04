@@ -46,6 +46,7 @@ function embedGenerator(serverQueue){
         const info = current.map(song => `${++j}. [${song.title}](${song.url})`).join('\n')
         const msg = new Discord.MessageEmbed()
             .setDescription(`**Now playing: [${serverQueue.songs[0].title}](${serverQueue.songs[0].url})** \n \n ${info}`)
+            .setFooter("Use the arrows to turn pages")
         
         embeds.push(msg)
     }
