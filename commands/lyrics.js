@@ -14,7 +14,7 @@ module.exports.run = (client, message, args, queue, searcher) => {
     const reactionFilter = (reaction, user) => ['⬅️', '➡️'].includes(reactiom.emoji.name) && (message.author.id === user.id)
 
     message.channel.send("Please enter the song name now");
-    await message.chanel.awaitMessage(messageFilter, { max: 1, time: 15000}).then(async collected => {
+    await message.channel.awaitMessages(messageFilter, { max: 1, time: 15000}).then(async collected => {
         songName = collected.first().content;
         await finder (artist, songName, message, pages)
     })
