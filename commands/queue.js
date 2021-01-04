@@ -25,9 +25,12 @@ module.exports.run = async(client, message, args, queue, searcher) => {
                 queueEmbed.edit(`Lyrics page: ${currentPage+1}/${embeds.length}`, embeds[currentPage]);
                 message.reactions.resolve(reaction).users.remove(user)
             }
-            else if(reaction.emoji.name === '⬅️'){
+        }
+        else if(reaction.emoji.name === '⬅️'){
+            if(currentPage !== 0){
                 currentPage -= 1;
                 queueEmbed.edit(`Lyrics page: ${currentPage-1}/${embeds.length}`, embeds[currentPage]);
+                message.reactions.resolve(reaction).users.remove(user)
             }
         }
     })
