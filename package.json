@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1",
+    "lyrics-finder": "^21.4.0",
     "opusscript": "0.0.7",
     "ytdl-core": "^4.2.1",
     "ytpl": "^2.0.4",
