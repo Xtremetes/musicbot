@@ -5,7 +5,7 @@ module.exports.run = async(client, message, args, queue, searcher) => {
     if(!serverQueue)
         return message.channel.send("There is no music currently playing!");
     if(message.member.voice.channel != message.guild.me.voice.channel)
-        return message.channel.send("You are not in the voice chaqnnel!")
+        return message.channel.send("You are not in the voice channel!")
 
     let currentPage = 0;
 
@@ -15,7 +15,7 @@ module.exports.run = async(client, message, args, queue, searcher) => {
     await queueEmbed.react('⬅️');
     await queueEmbed.react('➡️');
 
-    const reactionFilter = (reaction, user) => ['⬅️', '➡️'].includes(reactiom.emoji.name) && (message.author.id === user.id)
+    const reactionFilter = (reaction, user) => ['⬅️', '➡️'].includes(reaction.emoji.name) && (message.author.id === user.id)
     const collector = queueEmbed.createReactionCollector(reactionFilter);
 
     collector.on('collect', (reaction, user) => {
