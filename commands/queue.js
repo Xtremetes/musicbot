@@ -9,7 +9,7 @@ module.exports.run = async(client, message, args, queue, searcher) => {
 
     let currentPage = 0;
 
-    const embeds = embedGenerator(queue)
+    const embeds = embedGenerator(serverQueue)
 
     const queueEmbed = await message.channel.send(`Lyrics page: ${currentPage+1}/${embeds.length}`, embeds[currentPage])
     await queueEmbed.react('⬅️');
@@ -41,7 +41,7 @@ function embedGenerator(serverQueue){
         songs += 10;
         let j = i-1;
         const info = current.map(song => `${++j}. [${song.title}](${song.url})`).join('\n')
-        const msg = new Discord.messageEmbed()
+        const msg = new Discord.MessageEmbed()
             .setDescription(`Now playing: [${serverQueue.songs[0].title}](${serverQueue.songs[0].url}) \n ${info}`)
         
         embeds.push(msg)
