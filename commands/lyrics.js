@@ -50,7 +50,7 @@ async function finder(artist, songName, message, pages){
     }
 }
 
-modules.exports.config = {
+module.exports.config = {
     name: "lyrics",
     aliases: [""]
 }
