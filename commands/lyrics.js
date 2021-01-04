@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const lyricFinder = require('lyrics-finder');
 
-module.exports.run = (client, message, args, queue, searcher) => {
+module.exports.run = async(client, message, args, queue, searcher) => {
     if(args.length < 1)
         return message.lchannel.send("Please enter the artist name first. !lyrics <Artist Name>")
 
