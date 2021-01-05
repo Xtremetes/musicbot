@@ -58,4 +58,17 @@ client.on("message", async(message) => {
     }
 })
 
+client.on('message', async message => {
+    if(message.content == "!help"){
+        const msg = new Discord.MessageEmbed()
+            .setTitle("Commands")
+            .addField("Music")
+            .addDescription("```!play``` Plays a song \n```!pause``` Pause the playlist \n```!resume``` Resume the playlist \n```!skip``` Skips the current song \n```!stop``` Stops the playlist entirely \n```loopall``` Loops all the songs in the playlist \n```loopone``` Loops the current song \n```loopoff``` Stops the loop \n```!queue``` Shows the queue")
+            .addField("Status")
+            .addDescription("```!ping``` Shows the ping of the bot")
+            .setColor("ORANGE")
+        return message.channel.send(msg);
+    }
+})
+
 client.login(process.env.token);
