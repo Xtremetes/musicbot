@@ -8,8 +8,8 @@ module.exports.run = async(client, message, args, queue, searcher) => {
         return message.channel.send("You are not in the voice channel!")
 
     serverQueue.songs = [];
-    serverQueue.connection.dispatcher.shuffle();
-    message.channel.send("The queue has been shuffled")
+    serverQueue.songs.shuffle();
+    serverQueue.txtChannel.send("Shuffled the queue");
 }
 
 module.exports.config = {
