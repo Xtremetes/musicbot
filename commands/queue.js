@@ -45,8 +45,7 @@ function embedGenerator(serverQueue){
         let j = i-1;
         const info = current.map(song => `${++j}. [${song.title}](${song.url})`).join('\n')
         const msg = new Discord.MessageEmbed()
-            .setTitle(`**Now playing: [${serverQueue.songs[0].title}](${serverQueue.songs[0].url})**`)
-            .setDescription(`\n \n ${info}`)
+            .setDescription(`**Now Playing: [${serverQueue.songs[0].title}](${serverQueue.songs[0].url})** \n \n ${info}`)
             .setFooter("Use the arrows to turn pages")
             .setColor("BLUE")
         
