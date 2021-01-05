@@ -5,7 +5,7 @@ module.exports.run = async(client, message, args, queue, searcher) => {
     if(message.member.voice.channel != message.guild.me.voice.channel)
         return message.channel.send("You are not in the voice channel!")
 
-    serverQueue.songs.shuffle();
+    serverQueue.queue.shuffle();
     serverQueue.txtChannel.send("Shuffled the queue");
 }
 
